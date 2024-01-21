@@ -160,7 +160,6 @@
 			children = (
 				2550B8242B5D7A190004C360 /* Model */,
 				2550B8032B5D75E30004C360 /* Page */,
-				2550B8222B5D79E20004C360 /* AddDataModel.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -275,6 +274,7 @@
 		2550B8242B5D7A190004C360 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2550B8222B5D79E20004C360 /* AddDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
