@@ -9,13 +9,23 @@
 /* Begin PBXBuildFile section */
 		2550B7DD2B5D740C0004C360 /* MapTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B7DC2B5D740C0004C360 /* MapTodoApp.swift */; };
 		2550B7DF2B5D740C0004C360 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B7DE2B5D740C0004C360 /* ContentView.swift */; };
-		2550B7E12B5D740D0004C360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2550B7E02B5D740D0004C360 /* Assets.xcassets */; };
 		2550B7E42B5D740D0004C360 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2550B7E32B5D740D0004C360 /* Preview Assets.xcassets */; };
 		2550B7EA2B5D740D0004C360 /* MapTodo Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2550B7E92B5D740D0004C360 /* MapTodo Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2550B7EF2B5D740D0004C360 /* MapTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B7EE2B5D740D0004C360 /* MapTodoApp.swift */; };
 		2550B7F12B5D740D0004C360 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B7F02B5D740D0004C360 /* ContentView.swift */; };
 		2550B7F32B5D740E0004C360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2550B7F22B5D740E0004C360 /* Assets.xcassets */; };
 		2550B7F62B5D740E0004C360 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2550B7F52B5D740E0004C360 /* Preview Assets.xcassets */; };
+		2550B8012B5D75BD0004C360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2550B8002B5D75BD0004C360 /* Assets.xcassets */; };
+		2550B8052B5D75E30004C360 /* AddData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8042B5D75E30004C360 /* AddData.swift */; };
+		2550B8082B5D76650004C360 /* MapDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8072B5D76650004C360 /* MapDataModel.swift */; };
+		2550B81B2B5D76850004C360 /* MapCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B80B2B5D76850004C360 /* MapCard.swift */; };
+		2550B81C2B5D76850004C360 /* LargeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B80F2B5D76850004C360 /* LargeData.swift */; };
+		2550B81D2B5D76850004C360 /* SmallData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8122B5D76850004C360 /* SmallData.swift */; };
+		2550B81E2B5D76850004C360 /* TimeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8152B5D76850004C360 /* TimeLine.swift */; };
+		2550B81F2B5D76850004C360 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8172B5D76850004C360 /* Tools.swift */; };
+		2550B8202B5D76850004C360 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8182B5D76850004C360 /* LocationManager.swift */; };
+		2550B8212B5D76850004C360 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B81A2B5D76850004C360 /* Settings.swift */; };
+		2550B8232B5D79E20004C360 /* AddDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8222B5D79E20004C360 /* AddDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +56,23 @@
 		2550B7D92B5D740C0004C360 /* MapTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2550B7DC2B5D740C0004C360 /* MapTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTodoApp.swift; sourceTree = "<group>"; };
 		2550B7DE2B5D740C0004C360 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		2550B7E02B5D740D0004C360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2550B7E32B5D740D0004C360 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2550B7E92B5D740D0004C360 /* MapTodo Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MapTodo Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2550B7EE2B5D740D0004C360 /* MapTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTodoApp.swift; sourceTree = "<group>"; };
 		2550B7F02B5D740D0004C360 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2550B7F22B5D740E0004C360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2550B7F52B5D740E0004C360 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2550B8002B5D75BD0004C360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Desktop/haldegign/Assets.xcassets; sourceTree = "<group>"; };
+		2550B8042B5D75E30004C360 /* AddData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddData.swift; sourceTree = "<group>"; };
+		2550B8072B5D76650004C360 /* MapDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDataModel.swift; sourceTree = "<group>"; };
+		2550B80B2B5D76850004C360 /* MapCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCard.swift; sourceTree = "<group>"; };
+		2550B80F2B5D76850004C360 /* LargeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeData.swift; sourceTree = "<group>"; };
+		2550B8122B5D76850004C360 /* SmallData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallData.swift; sourceTree = "<group>"; };
+		2550B8152B5D76850004C360 /* TimeLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLine.swift; sourceTree = "<group>"; };
+		2550B8172B5D76850004C360 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		2550B8182B5D76850004C360 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2550B81A2B5D76850004C360 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		2550B8222B5D79E20004C360 /* AddDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +114,15 @@
 		2550B7DB2B5D740C0004C360 /* MapTodo */ = {
 			isa = PBXGroup;
 			children = (
+				2550B8022B5D75E30004C360 /* Add */,
+				2550B8002B5D75BD0004C360 /* Assets.xcassets */,
+				2550B8062B5D76650004C360 /* Model */,
 				2550B7DC2B5D740C0004C360 /* MapTodoApp.swift */,
+				2550B8192B5D76850004C360 /* Settings */,
+				2550B80C2B5D76850004C360 /* TimeLine */,
+				2550B8162B5D76850004C360 /* Tools */,
+				2550B8092B5D76850004C360 /* UI */,
 				2550B7DE2B5D740C0004C360 /* ContentView.swift */,
-				2550B7E02B5D740D0004C360 /* Assets.xcassets */,
 				2550B7E22B5D740D0004C360 /* Preview Content */,
 			);
 			path = MapTodo;
@@ -127,6 +153,130 @@
 				2550B7F52B5D740E0004C360 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2550B8022B5D75E30004C360 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8242B5D7A190004C360 /* Model */,
+				2550B8032B5D75E30004C360 /* Page */,
+				2550B8222B5D79E20004C360 /* AddDataModel.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		2550B8032B5D75E30004C360 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8042B5D75E30004C360 /* AddData.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		2550B8062B5D76650004C360 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8072B5D76650004C360 /* MapDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2550B8092B5D76850004C360 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2550B80A2B5D76850004C360 /* Map */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2550B80A2B5D76850004C360 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2550B80B2B5D76850004C360 /* MapCard.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		2550B80C2B5D76850004C360 /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				2550B80D2B5D76850004C360 /* LargeData */,
+				2550B8102B5D76850004C360 /* SmallData */,
+				2550B8132B5D76850004C360 /* TimeLine */,
+			);
+			path = TimeLine;
+			sourceTree = "<group>";
+		};
+		2550B80D2B5D76850004C360 /* LargeData */ = {
+			isa = PBXGroup;
+			children = (
+				2550B80E2B5D76850004C360 /* Page */,
+			);
+			path = LargeData;
+			sourceTree = "<group>";
+		};
+		2550B80E2B5D76850004C360 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2550B80F2B5D76850004C360 /* LargeData.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		2550B8102B5D76850004C360 /* SmallData */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8112B5D76850004C360 /* Page */,
+			);
+			path = SmallData;
+			sourceTree = "<group>";
+		};
+		2550B8112B5D76850004C360 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8122B5D76850004C360 /* SmallData.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		2550B8132B5D76850004C360 /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8142B5D76850004C360 /* Page */,
+			);
+			path = TimeLine;
+			sourceTree = "<group>";
+		};
+		2550B8142B5D76850004C360 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8152B5D76850004C360 /* TimeLine.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		2550B8162B5D76850004C360 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2550B8172B5D76850004C360 /* Tools.swift */,
+				2550B8182B5D76850004C360 /* LocationManager.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		2550B8192B5D76850004C360 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2550B81A2B5D76850004C360 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		2550B8242B5D7A190004C360 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,7 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2550B7E42B5D740D0004C360 /* Preview Assets.xcassets in Resources */,
-				2550B7E12B5D740D0004C360 /* Assets.xcassets in Resources */,
+				2550B8012B5D75BD0004C360 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +381,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2550B81E2B5D76850004C360 /* TimeLine.swift in Sources */,
+				2550B8232B5D79E20004C360 /* AddDataModel.swift in Sources */,
+				2550B81D2B5D76850004C360 /* SmallData.swift in Sources */,
+				2550B8202B5D76850004C360 /* LocationManager.swift in Sources */,
 				2550B7DF2B5D740C0004C360 /* ContentView.swift in Sources */,
+				2550B81C2B5D76850004C360 /* LargeData.swift in Sources */,
+				2550B8052B5D75E30004C360 /* AddData.swift in Sources */,
+				2550B8082B5D76650004C360 /* MapDataModel.swift in Sources */,
+				2550B81F2B5D76850004C360 /* Tools.swift in Sources */,
 				2550B7DD2B5D740C0004C360 /* MapTodoApp.swift in Sources */,
+				2550B8212B5D76850004C360 /* Settings.swift in Sources */,
+				2550B81B2B5D76850004C360 /* MapCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +604,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = MapTodo;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location information for testing";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -477,6 +638,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = MapTodo;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location information for testing";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

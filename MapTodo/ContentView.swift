@@ -6,19 +6,38 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var modelContext
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            TimeLine().tabItem {
+                Image(systemName: "doc.plaintext")
+                Text("Datail")
+            }
+            .toolbarBackground(.visible, for: .tabBar)
+            .toolbarBackground(Color("TabBackgroundColor"), for: .tabBar)
+            AddData().tabItem {
+                Image(systemName: "square.and.pencil")
+                Text("Add")
+            }
+            .toolbarBackground(.visible, for: .tabBar)
+            .toolbarBackground(Color("TabBackgroundColor"), for: .tabBar)
+            Settings()
+                .tabItem {
+                    Image(systemName: "gearshape")
+                Text("Settings")
+                }
+            .toolbarBackground(.visible, for: .tabBar)
+            .toolbarBackground(Color("TabBackgroundColor"), for: .tabBar)
         }
-        .padding()
+        
     }
 }
 
 #Preview {
     ContentView()
 }
+
