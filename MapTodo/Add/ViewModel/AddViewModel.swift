@@ -40,9 +40,6 @@ class AddViewModel: ObservableObject {
     // 登録実行関数
     public func regist(complete: @escaping (Bool)->Void){
         
-        
-//        let newItem = MapDataModel(id: UUID().uuidString, title: addModel.title.isEmpty ? "No title" : addModel.title, subTitle: addModel.subTitle, lat: self.addModel.lat, lon: self.addModel.lon, registDate: Date(), endDate: Date(), endFlag: false, mapMode: true, mapMemo: "")
-        
         if addModel.lon == 0.000000 && addModel.lat == 0.000000 && !addModel.address.isEmpty {
             locationMan.geocoding(address: addModel.address){ lat, lon in
                 // 住所からデータを取得
