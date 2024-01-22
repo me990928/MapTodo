@@ -19,7 +19,7 @@ struct ContentView: View {
             }
             .toolbarBackground(.visible, for: .tabBar)
             .toolbarBackground(Color("TabBackgroundColor"), for: .tabBar)
-            AddData().tabItem {
+            AddData(addVM: AddViewModel()).tabItem {
                 Image(systemName: "square.and.pencil")
                 Text("Add")
             }

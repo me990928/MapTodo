@@ -10,19 +10,10 @@ import SwiftData
 
 struct AddData: View {
     
-    let tools = ToolBox()
-    let locationMan = LocationManager()
     
-    @Environment(\.modelContext) private var modeContext
+    @Environment(\.modelContext) private var modelContext
     
-    @State var title: String = ""
-    @State var subTitle: String = ""
-    @State var address: String = ""
-    
-    @State var lat: Double = 0.0
-    @State var lon: Double = 0.0
-    
-    @State var creatingFlag: Bool = false
+    @StateObject var addVM: AddViewModel
     
     var body: some View {
         
@@ -36,7 +27,7 @@ struct AddData: View {
                             Spacer()
                         }
                         HStack{
-                            TextField("タイトル", text: $title)
+                            TextField("タイトル", text: $addVM.addModel.title)
                             Spacer()
                         }
                         Divider()
@@ -50,7 +41,7 @@ struct AddData: View {
                             Spacer()
                         }
                         HStack{
-                            TextField("サブタイトル", text: $subTitle)
+                            TextField("サブタイトル", text: $addVM.addModel.subTitle)
                             Spacer()
                         }
                         Divider()
@@ -63,29 +54,31 @@ struct AddData: View {
                             Text("住所登録").bold()
                             Spacer()
                             Button("取得"){
-                                lat = locationMan.latiude
-                                lon = locationMan.longitude
-                                
-                                locationMan.regeocoding(lon: lon, lat: lat) { addr in
-                                    self.address = addr
-                                    tools.feedBack(mode: "success")
-                                }
-                            }.disabled(creatingFlag)
+                                addVM.setLocation()
+                            }.disabled(addVM.addModel.creatingFlag)
                         }
                         HStack{
 //                            Text(address)
-                            TextField("住所を入力するか現在位置から取得してください", text: $address)
+                            TextField("住所を入力するか現在位置から取得してください", text: $addVM.addModel.address)
                             Spacer()
                         }
                     }.padding()
                 }
                 
                 Button("作成"){
-                    creatingFlag.toggle()
+                    addVM.addModel.creatingFlag.toggle()
                     
-                    act { _ in
-                        creatingFlag .toggle()
-                        tools.feedBack(mode: "success")
+//                    act { _ in
+//                        addVM.addModel.creatingFlag .toggle()
+//                        tools.feedBack(mode: "success")
+//                    }
+                    
+                    addVM.regist { Bool in
+                        addVM.addModel.creatingFlag .toggle()
+                        print("view:\(addVM.addModel.lat)")
+                        let newItem = MapDataModel(id: UUID().uuidString, title: addVM.addModel.title.isEmpty ? "No title" : addVM.addModel.title, subTitle: addVM.addModel.subTitle, lat: addVM.addModel.lat, lon: addVM.addModel.lon, registDate: Date(), endDate: Date(), endFlag: false, mapMode: true, mapMemo: "")
+                        self.modelContext.insert(newItem)
+                        addVM.tools.feedBack(mode: "success")
                     }
                     
                     // 登録完了後、TLに飛ぶ
@@ -94,7 +87,7 @@ struct AddData: View {
                 
                 Spacer()
             }
-            if creatingFlag {
+            if addVM.addModel.creatingFlag {
                 ZStack{
                     VStack{
                         ProgressView()
@@ -104,40 +97,16 @@ struct AddData: View {
                 }
             }
         }.onDisappear(){
-            self.title = ""
-            self.subTitle = ""
-            self.address = ""
-            self.lat = 0.0
-            self.lon = 0.0
+            self.addVM.addModel.title = ""
+            self.addVM.addModel.subTitle = ""
+            self.addVM.addModel.address = ""
+            self.addVM.addModel.lat = 0.0
+            self.addVM.addModel.lon = 0.0
         }
     }
     
-    
-    // 登録関数
-    func act(complete: @escaping (Bool)->Void){
-        
-        if self.lon == 0.000000 && self.lat == 0.000000 && !address.isEmpty {
-            locationMan.geocoding(address: self.address){ lat, lon in
-                print(lat)
-                print(lon)
-                self.lat = lat
-                self.lon = lon
-            }
-        }
-        
-        let newItem = MapDataModel(id: UUID().uuidString, title: self.title.isEmpty ? "No title" : self.title, subTitle: self.subTitle, lat: self.lat, lon: self.lon, registDate: Date(), endDate: Date(), endFlag: false, mapMode: true, mapMemo: "")
-        
-        self.modeContext.insert(newItem)
-        
-        complete(true)
-    }
-    
-    func rest(){
-        self.title = ""
-        self.subTitle = ""
-    }
 }
 
 #Preview {
-    AddData()
+    AddData(addVM: AddViewModel())
 }
