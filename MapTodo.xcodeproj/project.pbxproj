@@ -27,6 +27,8 @@
 		2550B8232B5D79E20004C360 /* AddDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2550B8222B5D79E20004C360 /* AddDataModel.swift */; };
 		D2EB41482B5E259100A7FF8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EB41472B5E259100A7FF8B /* Assets.xcassets */; };
 		D2EB414C2B5E27A300A7FF8B /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB414B2B5E27A300A7FF8B /* AddViewModel.swift */; };
+		D2EB414F2B5ECF4E00A7FF8B /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB414E2B5ECF4E00A7FF8B /* SettingsModel.swift */; };
+		D2EB41522B5ED03300A7FF8B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB41512B5ED03300A7FF8B /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		2550B8222B5D79E20004C360 /* AddDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataModel.swift; sourceTree = "<group>"; };
 		D2EB41472B5E259100A7FF8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2EB414B2B5E27A300A7FF8B /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		D2EB414E2B5ECF4E00A7FF8B /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		D2EB41512B5ED03300A7FF8B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,17 +166,17 @@
 			children = (
 				D2EB414A2B5E278800A7FF8B /* ViewModel */,
 				2550B8242B5D7A190004C360 /* Model */,
-				2550B8032B5D75E30004C360 /* Page */,
+				2550B8032B5D75E30004C360 /* View */,
 			);
 			path = Add;
 			sourceTree = "<group>";
 		};
-		2550B8032B5D75E30004C360 /* Page */ = {
+		2550B8032B5D75E30004C360 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2550B8042B5D75E30004C360 /* AddData.swift */,
 			);
-			path = Page;
+			path = View;
 			sourceTree = "<group>";
 		};
 		2550B8062B5D76650004C360 /* Model */ = {
@@ -269,7 +273,9 @@
 		2550B8192B5D76850004C360 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				2550B81A2B5D76850004C360 /* Settings.swift */,
+				D2EB41532B5ED05800A7FF8B /* View */,
+				D2EB41502B5ED01B00A7FF8B /* ViewModel */,
+				D2EB414D2B5ECF2300A7FF8B /* Model */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -288,6 +294,30 @@
 				D2EB414B2B5E27A300A7FF8B /* AddViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D2EB414D2B5ECF2300A7FF8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB414E2B5ECF4E00A7FF8B /* SettingsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2EB41502B5ED01B00A7FF8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB41512B5ED03300A7FF8B /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D2EB41532B5ED05800A7FF8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2550B81A2B5D76850004C360 /* Settings.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,9 +427,11 @@
 				2550B81D2B5D76850004C360 /* SmallData.swift in Sources */,
 				2550B8202B5D76850004C360 /* LocationManager.swift in Sources */,
 				2550B7DF2B5D740C0004C360 /* ContentView.swift in Sources */,
+				D2EB41522B5ED03300A7FF8B /* SettingsViewModel.swift in Sources */,
 				2550B81C2B5D76850004C360 /* LargeData.swift in Sources */,
 				2550B8052B5D75E30004C360 /* AddData.swift in Sources */,
 				2550B8082B5D76650004C360 /* MapDataModel.swift in Sources */,
+				D2EB414F2B5ECF4E00A7FF8B /* SettingsModel.swift in Sources */,
 				2550B81F2B5D76850004C360 /* Tools.swift in Sources */,
 				D2EB414C2B5E27A300A7FF8B /* AddViewModel.swift in Sources */,
 				2550B7DD2B5D740C0004C360 /* MapTodoApp.swift in Sources */,
