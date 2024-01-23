@@ -29,6 +29,8 @@
 		D2EB414C2B5E27A300A7FF8B /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB414B2B5E27A300A7FF8B /* AddViewModel.swift */; };
 		D2EB414F2B5ECF4E00A7FF8B /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB414E2B5ECF4E00A7FF8B /* SettingsModel.swift */; };
 		D2EB41522B5ED03300A7FF8B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB41512B5ED03300A7FF8B /* SettingsViewModel.swift */; };
+		D2EB415B2B5F680100A7FF8B /* LargeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB415A2B5F680100A7FF8B /* LargeDataModel.swift */; };
+		D2EB415F2B5F684100A7FF8B /* LargeDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB415E2B5F684100A7FF8B /* LargeDataViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,12 @@
 		D2EB414B2B5E27A300A7FF8B /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		D2EB414E2B5ECF4E00A7FF8B /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		D2EB41512B5ED03300A7FF8B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D2EB415A2B5F680100A7FF8B /* LargeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeDataModel.swift; sourceTree = "<group>"; };
+		D2EB415C2B5F680800A7FF8B /* SmallDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDataModel.swift; sourceTree = "<group>"; };
+		D2EB415D2B5F681400A7FF8B /* TimeLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineModel.swift; sourceTree = "<group>"; };
+		D2EB415E2B5F684100A7FF8B /* LargeDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeDataViewModel.swift; sourceTree = "<group>"; };
+		D2EB41602B5F684500A7FF8B /* SmallDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDataViewModel.swift; sourceTree = "<group>"; };
+		D2EB41612B5F684800A7FF8B /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,49 +224,55 @@
 		2550B80D2B5D76850004C360 /* LargeData */ = {
 			isa = PBXGroup;
 			children = (
-				2550B80E2B5D76850004C360 /* Page */,
+				D2EB41572B5F67D700A7FF8B /* ViewModel */,
+				D2EB41542B5F67B100A7FF8B /* Model */,
+				2550B80E2B5D76850004C360 /* View */,
 			);
 			path = LargeData;
 			sourceTree = "<group>";
 		};
-		2550B80E2B5D76850004C360 /* Page */ = {
+		2550B80E2B5D76850004C360 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2550B80F2B5D76850004C360 /* LargeData.swift */,
 			);
-			path = Page;
+			path = View;
 			sourceTree = "<group>";
 		};
 		2550B8102B5D76850004C360 /* SmallData */ = {
 			isa = PBXGroup;
 			children = (
-				2550B8112B5D76850004C360 /* Page */,
+				D2EB41582B5F67E100A7FF8B /* ViewModel */,
+				D2EB41552B5F67BD00A7FF8B /* Model */,
+				2550B8112B5D76850004C360 /* View */,
 			);
 			path = SmallData;
 			sourceTree = "<group>";
 		};
-		2550B8112B5D76850004C360 /* Page */ = {
+		2550B8112B5D76850004C360 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2550B8122B5D76850004C360 /* SmallData.swift */,
 			);
-			path = Page;
+			path = View;
 			sourceTree = "<group>";
 		};
 		2550B8132B5D76850004C360 /* TimeLine */ = {
 			isa = PBXGroup;
 			children = (
-				2550B8142B5D76850004C360 /* Page */,
+				D2EB41592B5F67E400A7FF8B /* ViewModel */,
+				D2EB41562B5F67BF00A7FF8B /* Model */,
+				2550B8142B5D76850004C360 /* View */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
 		};
-		2550B8142B5D76850004C360 /* Page */ = {
+		2550B8142B5D76850004C360 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2550B8152B5D76850004C360 /* TimeLine.swift */,
 			);
-			path = Page;
+			path = View;
 			sourceTree = "<group>";
 		};
 		2550B8162B5D76850004C360 /* Tools */ = {
@@ -318,6 +332,54 @@
 				2550B81A2B5D76850004C360 /* Settings.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D2EB41542B5F67B100A7FF8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB415A2B5F680100A7FF8B /* LargeDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2EB41552B5F67BD00A7FF8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB415C2B5F680800A7FF8B /* SmallDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2EB41562B5F67BF00A7FF8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB415D2B5F681400A7FF8B /* TimeLineModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2EB41572B5F67D700A7FF8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB415E2B5F684100A7FF8B /* LargeDataViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D2EB41582B5F67E100A7FF8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB41602B5F684500A7FF8B /* SmallDataViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D2EB41592B5F67E400A7FF8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB41612B5F684800A7FF8B /* TimeLineViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,10 +489,12 @@
 				2550B81D2B5D76850004C360 /* SmallData.swift in Sources */,
 				2550B8202B5D76850004C360 /* LocationManager.swift in Sources */,
 				2550B7DF2B5D740C0004C360 /* ContentView.swift in Sources */,
+				D2EB415B2B5F680100A7FF8B /* LargeDataModel.swift in Sources */,
 				D2EB41522B5ED03300A7FF8B /* SettingsViewModel.swift in Sources */,
 				2550B81C2B5D76850004C360 /* LargeData.swift in Sources */,
 				2550B8052B5D75E30004C360 /* AddData.swift in Sources */,
 				2550B8082B5D76650004C360 /* MapDataModel.swift in Sources */,
+				D2EB415F2B5F684100A7FF8B /* LargeDataViewModel.swift in Sources */,
 				D2EB414F2B5ECF4E00A7FF8B /* SettingsModel.swift in Sources */,
 				2550B81F2B5D76850004C360 /* Tools.swift in Sources */,
 				D2EB414C2B5E27A300A7FF8B /* AddViewModel.swift in Sources */,
