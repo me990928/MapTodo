@@ -9,4 +9,6 @@ import Foundation
 
 class SettingsViewModel: ObservableObject {
     @Published var settingModel = SettingsModel()
+    
+    let toolbox = ToolBox()
 }

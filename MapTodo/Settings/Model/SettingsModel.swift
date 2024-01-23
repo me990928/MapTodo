@@ -9,5 +9,5 @@ import Foundation
 
 struct SettingsModel {
     var awTog: Bool = true
-    var detaResetFlag: Bool = false
+    var dataResetFlag: Bool = false
 }

@@ -13,16 +13,10 @@ import SwiftData
 
 struct Settings: View {
     
-    let toolbox = ToolBox()
-    
-    // デバッグ用
-    let locationMan = LocationManager()
-    
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [MapDataModel]
     
-    @State var awTog: Bool = true
-    @State var dataResetFlag: Bool = false
+    @StateObject var setteingVM: SettingsViewModel
     
     var body: some View {
         VStack(alignment: .leading){
@@ -31,22 +25,23 @@ struct Settings: View {
                 HStack{
                     Text("AppleWatchとの接続")
                     Spacer()
-                    Toggle("", isOn: $awTog).frame(width: 50).disabled(true)
+                    Toggle("", isOn: $setteingVM.settingModel.awTog).frame(width: 50).disabled(true)
                 }
                 
                 Button {
-                    dataResetFlag.toggle()
+                    setteingVM.settingModel.dataResetFlag.toggle()
                 } label: {
                     Text("データを全て削除する").foregroundStyle(Color.red)
                 }
                 
-                .alert("確認", isPresented: $dataResetFlag) {
+                .alert("確認", isPresented: $setteingVM.settingModel.dataResetFlag
+                ) {
                     Button("戻る", role: .cancel){
                         
                     }
                     Button("削除する", role: .destructive){
                         try! modelContext.delete(model: MapDataModel.self, includeSubclasses: true)
-                        toolbox.feedBack(mode: "success")
+                            setteingVM.toolbox.feedBack(mode: "success")
                     }
                 } message: {
                     Text("削除を実行します")
@@ -57,5 +52,5 @@ struct Settings: View {
 }
 
 #Preview {
-    Settings()
+    Settings(setteingVM: SettingsViewModel())
 }
