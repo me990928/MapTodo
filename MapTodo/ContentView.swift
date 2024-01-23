@@ -25,7 +25,7 @@ struct ContentView: View {
             }
             .toolbarBackground(.visible, for: .tabBar)
             .toolbarBackground(Color("TabBackgroundColor"), for: .tabBar)
-            Settings()
+            Settings(setteingVM: SettingsViewModel())
                 .tabItem {
                     Image(systemName: "gearshape")
                 Text("Settings")
