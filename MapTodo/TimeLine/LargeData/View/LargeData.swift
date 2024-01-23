@@ -11,29 +11,12 @@ import SwiftData
 
 struct LargeData: View {
     
-    @State var device: String = ""
-    
     let tools = ToolBox()
     let locationMan = LocationManager()
     
-    @Environment(\.modelContext) private var modelContext
-    
     @State var data: MapDataModel
     
-    @State var toolButton: Bool = false
-    
-    @State var todoFlag: Bool = false
-    
-    @State var updateFlag: Bool = false
-    
-    @State var deleteAlert: Bool = false
-    
-    // sheet用
-    @State var title: String = ""
-    @State var subTitle: String = ""
-    @State var memoData: String = ""
-    @State var address: String = ""
-    @State var originalAddress: String = ""
+    @Environment(\.modelContext) private var modelContext
     
     @Environment(\.presentationMode) var presentation
     
@@ -126,6 +109,7 @@ struct LargeData: View {
                 toolButton.toggle()
             })
             .sheet(isPresented: $toolButton, content: {
+                UpdateSheet()
             })
     }
     
