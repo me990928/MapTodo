@@ -31,6 +31,7 @@
 		D2EB41522B5ED03300A7FF8B /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB41512B5ED03300A7FF8B /* SettingsViewModel.swift */; };
 		D2EB415B2B5F680100A7FF8B /* LargeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB415A2B5F680100A7FF8B /* LargeDataModel.swift */; };
 		D2EB415F2B5F684100A7FF8B /* LargeDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB415E2B5F684100A7FF8B /* LargeDataViewModel.swift */; };
+		D2EB41632B5F68CC00A7FF8B /* updateSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB41622B5F68CC00A7FF8B /* updateSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		D2EB415E2B5F684100A7FF8B /* LargeDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeDataViewModel.swift; sourceTree = "<group>"; };
 		D2EB41602B5F684500A7FF8B /* SmallDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDataViewModel.swift; sourceTree = "<group>"; };
 		D2EB41612B5F684800A7FF8B /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
+		D2EB41622B5F68CC00A7FF8B /* updateSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				2550B80F2B5D76850004C360 /* LargeData.swift */,
+				D2EB41622B5F68CC00A7FF8B /* updateSheet.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				2550B8232B5D79E20004C360 /* AddDataModel.swift in Sources */,
 				2550B81D2B5D76850004C360 /* SmallData.swift in Sources */,
 				2550B8202B5D76850004C360 /* LocationManager.swift in Sources */,
+				D2EB41632B5F68CC00A7FF8B /* updateSheet.swift in Sources */,
 				2550B7DF2B5D740C0004C360 /* ContentView.swift in Sources */,
 				D2EB415B2B5F680100A7FF8B /* LargeDataModel.swift in Sources */,
 				D2EB41522B5ED03300A7FF8B /* SettingsViewModel.swift in Sources */,
