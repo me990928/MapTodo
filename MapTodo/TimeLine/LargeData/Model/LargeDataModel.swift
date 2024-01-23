@@ -9,7 +9,7 @@ import Foundation
 
 struct LargeDataModel {
     // 設定用
-    @State var device: String = ""
+    var device: String = ""
     
     // DataView用
     var toolButton: Bool = false
