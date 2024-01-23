@@ -11,9 +11,6 @@ import SwiftData
 
 struct LargeData: View {
     
-    let tools = ToolBox()
-    let locationMan = LocationManager()
-    
     @State var data: MapDataModel
     
     @Environment(\.modelContext) private var modelContext

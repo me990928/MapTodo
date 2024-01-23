@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class LargeDataViewModel: ObservableObject {
+    @Published var model = LargeDataModel()
+    
+    let tools = ToolBox()
+    let locationMan = LocationManager()
+}
