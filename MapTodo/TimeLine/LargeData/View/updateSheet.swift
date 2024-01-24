@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct UpdateSheet: View {
+    
+    @StateObject var largeVM: LargeDataViewModel
+    // 親ビューから
+    @Binding var data: MapDataModel
+    
+    @Environment(\.modelContext) private var modelContext
+    
     var body: some View {
             ScrollView{
             
@@ -16,7 +23,7 @@ struct UpdateSheet: View {
                     Spacer()
                 }.padding(.top)
                 HStack{
-                    TextField("タイトル", text: $title)
+                    TextField("タイトル", text: $largeVM.model.title)
                     Spacer()
                 }
                 
@@ -27,7 +34,7 @@ struct UpdateSheet: View {
                     Spacer()
                 }
                 HStack{
-                    TextField("サブタイトル", text: $subTitle)
+                    TextField("サブタイトル", text: $largeVM.model.subTitle)
                     Spacer()
                 }
                 
@@ -39,9 +46,9 @@ struct UpdateSheet: View {
                 }
                 VStack{
                     HStack{
-                        TextField("住所", text: $address)
+                        TextField("住所", text: $largeVM.model.address)
                     }.onAppear(){
-                        originalAddress = address
+                        largeVM.model.originalAddress = largeVM.model.address
                     }
                 }
                 
@@ -53,14 +60,14 @@ struct UpdateSheet: View {
                 }
                 VStack{
                     HStack{
-                        TextEditor(text: $memoData).frame(width: .infinity, height: 100)
+                        TextEditor(text: $largeVM.model.memoData).frame(width: .infinity, height: 100)
                     }
                 }
                     
                 Divider()
                 Button("完了"){
                     act { _ in
-                        toolButton.toggle()
+                        largeVM.model.toolButton.toggle()
                     }
                     
                 }
@@ -68,11 +75,23 @@ struct UpdateSheet: View {
                 .interactiveDismissDisabled()
                 .padding(.top)
                 .onAppear(){
-                    self.title = data.title
-                    self.subTitle = data.subTitle
-                    self.memoData = data.mapMemo
+                    largeVM.model.title = data.title
+                    largeVM.model.subTitle = data.subTitle
+                    largeVM.model.memoData = data.mapMemo
                 }
                 Spacer()
             }.padding([.trailing, .leading])
+    }
+    
+    // 更新関数
+    func act(complete: @escaping (Bool)->Void){
+        
+        let newItem = MapDataModel(id: data.id, title: largeVM.model.title, subTitle: largeVM.model.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: data.endDate, endFlag: largeVM.model.todoFlag, mapMode: data.mapMode, mapMemo: largeVM.model.memoData)
+        
+        self.modelContext.insert(newItem)
+        
+        try! self.modelContext.save()
+        
+        complete(true)
     }
 }

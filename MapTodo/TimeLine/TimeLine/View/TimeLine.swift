@@ -24,7 +24,7 @@ struct TimeLine: View {
                 ForEach(items) { data in
                     
                     NavigationLink {
-                        LargeData(data: data).padding()
+                        LargeData(data: data, largeVM: LargeDataViewModel()).padding()
                     } label: {
                         SmallData(data: data)
                     }.contextMenu(ContextMenu(menuItems: {

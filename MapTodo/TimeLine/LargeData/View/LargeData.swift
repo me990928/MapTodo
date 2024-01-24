@@ -110,7 +110,7 @@ struct LargeData: View {
                 largeVM.model.toolButton.toggle()
             })
             .sheet(isPresented: $largeVM.model.toolButton, content: {
-                UpdateSheet()
+                UpdateSheet(largeVM: largeVM, data: $data)
             })
     }
     
