@@ -36,7 +36,7 @@ struct LargeData: View {
                     .alert("警告", isPresented: $largeVM.model.deleteAlert) {
                         Button("削除", role: .destructive){
                             // データ削除処理
-                            delact { _ in
+                            largeVM.delact(data: data, modelContext: modelContext) { _ in
                                 largeVM.tools.feedBack(mode: "success")
                                 // 削除後にタイムラインに戻る
                                 self.presentation.wrappedValue.dismiss()
@@ -75,7 +75,10 @@ struct LargeData: View {
                         Spacer()
                         Toggle("", isOn: $largeVM.model.todoFlag).padding(.trailing)
                     }.onChange(of: largeVM.model.todoFlag) { oldValue, newValue in
-                        endFlagAct(data: data, flag: largeVM.model.todoFlag) { Bool in
+//                        endFlagAct(data: data, flag: largeVM.model.todoFlag) { Bool in
+//                        }
+                        largeVM.endFlagAct(data: data, flag: largeVM.model.todoFlag, modelContext: self.modelContext) { Bool in
+                            // 削除失敗処理
                         }
                     }
                     .onAppear(){
@@ -112,40 +115,6 @@ struct LargeData: View {
             .sheet(isPresented: $largeVM.model.toolButton, content: {
                 UpdateSheet(largeVM: largeVM, data: $data)
             })
-    }
-    
-    
-    // 更新関数
-    func act(complete: @escaping (Bool)->Void){
-        
-        let newItem = MapDataModel(id: data.id, title: largeVM.model.title, subTitle: largeVM.model.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: data.endDate, endFlag: largeVM.model.todoFlag, mapMode: data.mapMode, mapMemo: largeVM.model.memoData)
-        
-        self.modelContext.insert(newItem)
-        
-        try! self.modelContext.save()
-        
-        complete(true)
-    }
-    
-    // 完了処理
-    func endFlagAct(data:MapDataModel, flag:Bool, complete: @escaping (Bool)->Void){
-        
-        let newItem = MapDataModel(id: data.id, title: data.title, subTitle: data.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: Date(), endFlag: flag, mapMode: data.mapMode, mapMemo: data.mapMemo)
-        
-        self.modelContext.insert(newItem)
-        
-        try! self.modelContext.save()
-        
-        complete(true)
-    }
-    
-    // 削除処理
-    func delact(complete: @escaping (Bool)->Void){
-        
-        self.modelContext.delete(self.data)
-        try! self.modelContext.save()
-        
-        complete(true)
     }
     
     

@@ -66,7 +66,7 @@ struct UpdateSheet: View {
                     
                 Divider()
                 Button("完了"){
-                    act { _ in
+                    largeVM.update(data: data, modelContext: modelContext) { _ in
                         largeVM.model.toolButton.toggle()
                     }
                     
@@ -83,15 +83,4 @@ struct UpdateSheet: View {
             }.padding([.trailing, .leading])
     }
     
-    // 更新関数
-    func act(complete: @escaping (Bool)->Void){
-        
-        let newItem = MapDataModel(id: data.id, title: largeVM.model.title, subTitle: largeVM.model.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: data.endDate, endFlag: largeVM.model.todoFlag, mapMode: data.mapMode, mapMemo: largeVM.model.memoData)
-        
-        self.modelContext.insert(newItem)
-        
-        try! self.modelContext.save()
-        
-        complete(true)
-    }
 }
