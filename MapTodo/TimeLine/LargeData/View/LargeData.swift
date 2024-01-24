@@ -11,11 +11,14 @@ import SwiftData
 
 struct LargeData: View {
     
+    // 親ビューから
     @State var data: MapDataModel
     
     @Environment(\.modelContext) private var modelContext
-    
+    // 制御用
     @Environment(\.presentationMode) var presentation
+    
+    @StateObject var largeVM: LargeDataViewModel
     
     
     var body: some View {
@@ -26,15 +29,16 @@ struct LargeData: View {
                     Spacer()
                     
                     Button {
-                        deleteAlert.toggle()
+                        largeVM.model.deleteAlert.toggle()
                     } label: {
                         Image(systemName: "trash").tint(Color.red)
                     }
-                    .alert("警告", isPresented: $deleteAlert) {
+                    .alert("警告", isPresented: $largeVM.model.deleteAlert) {
                         Button("削除", role: .destructive){
                             // データ削除処理
                             delact { _ in
-                                tools.feedBack(mode: "success")
+                                largeVM.tools.feedBack(mode: "success")
+                                // 削除後にタイムラインに戻る
                                 self.presentation.wrappedValue.dismiss()
                             }
                         }
@@ -63,19 +67,19 @@ struct LargeData: View {
                 
                 VStack{
                     HStack{
-                        Text("登録：" + tools.formatDate(date: data.registDate))
+                        Text("登録：" + largeVM.tools.formatDate(date: data.registDate))
                         Spacer()
                     }
                     HStack{
-                        Text("状況：\(todoFlag ? "完了" : "未完了")")
+                        Text("状況：\(largeVM.model.todoFlag ? "完了" : "未完了")")
                         Spacer()
-                        Toggle("", isOn: $todoFlag).padding(.trailing)
-                    }.onChange(of: todoFlag) { oldValue, newValue in
-                        endFlagAct(data: data, flag: todoFlag) { Bool in
+                        Toggle("", isOn: $largeVM.model.todoFlag).padding(.trailing)
+                    }.onChange(of: largeVM.model.todoFlag) { oldValue, newValue in
+                        endFlagAct(data: data, flag: largeVM.model.todoFlag) { Bool in
                         }
                     }
                     .onAppear(){
-                        todoFlag = data.endFlag
+                        largeVM.model.todoFlag = data.endFlag
                     }
                 }
                 
@@ -87,12 +91,12 @@ struct LargeData: View {
                 }
                 
                 HStack{
-                    Text(address)
+                    Text(largeVM.model.address)
 //                    Text("lat:\(data.lat), lon:\(data.lon)")
                     Spacer()
                 }.onAppear(){
-                    locationMan.regeocoding(lon: data.lon, lat: data.lat) { addr in
-                        self.address = addr
+                    largeVM.locationMan.regeocoding(lon: data.lon, lat: data.lat) { addr in
+                        largeVM.model.address = addr
                     }
                 }
 
@@ -103,9 +107,9 @@ struct LargeData: View {
             }.padding(.bottom, 50)
         }.navigationTitle("Todo")
             .navigationBarItems(trailing: Button("編集"){
-                toolButton.toggle()
+                largeVM.model.toolButton.toggle()
             })
-            .sheet(isPresented: $toolButton, content: {
+            .sheet(isPresented: $largeVM.model.toolButton, content: {
                 UpdateSheet()
             })
     }
@@ -114,7 +118,7 @@ struct LargeData: View {
     // 更新関数
     func act(complete: @escaping (Bool)->Void){
         
-        let newItem = MapDataModel(id: data.id, title: self.title, subTitle: self.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: data.endDate, endFlag: todoFlag, mapMode: data.mapMode, mapMemo: self.memoData)
+        let newItem = MapDataModel(id: data.id, title: largeVM.model.title, subTitle: largeVM.model.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: data.endDate, endFlag: largeVM.model.todoFlag, mapMode: data.mapMode, mapMemo: largeVM.model.memoData)
         
         self.modelContext.insert(newItem)
         
