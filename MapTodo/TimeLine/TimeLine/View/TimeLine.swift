@@ -10,12 +10,11 @@ import SwiftData
 
 struct TimeLine: View {
     
-    let toolbox = ToolBox()
+    @StateObject var timelineVM = TimeLineViewModel()
     
     @Environment(\.modelContext) private var modelContext
     
     @Query(sort: \MapDataModel.registDate, order: .reverse) private var items: [MapDataModel]
-    @State var deleteAlert: Bool = false
     
     var body: some View {
         NavigationStack{
@@ -24,29 +23,23 @@ struct TimeLine: View {
                 ForEach(items) { data in
                     
                     NavigationLink {
-                        LargeData(data: data).padding()
+                        LargeData(data: data, largeVM: LargeDataViewModel()).padding()
                     } label: {
-                        SmallData(data: data)
+                        SmallData(smallVM: SmallDataViewModel(), data: data)
                     }.contextMenu(ContextMenu(menuItems: {
                         Button(data.endFlag ? "未完了" : "完了"){
                             endFlagAct(data: data, flag: !data.endFlag) { Bool in
-                                toolbox.feedBack(mode: "success")
+                                    timelineVM.toolbox.feedBack(mode: "success")
                             }
                         }
                         Button("削除", role: .destructive) {
                             delact(del: data) { Bool in
-                                toolbox.feedBack(mode: "success")
+                                timelineVM.toolbox.feedBack(mode: "success")
                             }
                         }
                     }))
                     
                 }
-                
-//                NavigationLink {
-//                    LargeData().padding()
-//                } label: {
-//                    SmallData(data: <#MapDataModel#>)
-//                }
 
             }.navigationTitle("Todo一覧").padding(.top)
         }

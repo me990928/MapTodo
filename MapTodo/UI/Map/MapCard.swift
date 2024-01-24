@@ -45,7 +45,7 @@ struct MapCard: View {
     
     @State var imageChangeFlag: Bool = false
     
-    @State var data: MapDataModel
+    @Binding var data: MapDataModel
     
     let mapStyleReal: MapStyle = .hybrid(elevation: .realistic)
     let mapStylePaper: MapStyle = .standard

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SmallData: View {
     
-    let tools = ToolBox()
+    @ObservedObject var smallVM: SmallDataViewModel
     
     @State var data: MapDataModel
     
@@ -20,16 +20,16 @@ struct SmallData: View {
                     HStack{
                         Text(data.title).bold()
                         Spacer()
-                        Text(tools.formatDate(date: data.registDate)).foregroundStyle(.gray).font(.caption)
+                        Text(smallVM.tools.formatDate(date: data.registDate)).foregroundStyle(.gray).font(.caption)
                     }
                     Text(data.subTitle)
                 }
                 Spacer()
             }
-            MapCard(controlFlag: false, data: data)
+            MapCard(controlFlag: false, data: $data)
             HStack{
                 Spacer()
-                data.endFlag ? Text("\(tools.formatDate(date: data.endDate)) 完了").foregroundStyle(.gray).font(.caption) : nil
+                data.endFlag ? Text("\(smallVM.tools.formatDate(date: data.endDate)) 完了").foregroundStyle(.gray).font(.caption) : nil
             }
         }
     }

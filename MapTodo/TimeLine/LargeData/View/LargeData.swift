@@ -11,31 +11,14 @@ import SwiftData
 
 struct LargeData: View {
     
-    @State var device: String = ""
-    
-    let tools = ToolBox()
-    let locationMan = LocationManager()
-    
-    @Environment(\.modelContext) private var modelContext
-    
+    // 親ビューから
     @State var data: MapDataModel
     
-    @State var toolButton: Bool = false
-    
-    @State var todoFlag: Bool = false
-    
-    @State var updateFlag: Bool = false
-    
-    @State var deleteAlert: Bool = false
-    
-    // sheet用
-    @State var title: String = ""
-    @State var subTitle: String = ""
-    @State var memoData: String = ""
-    @State var address: String = ""
-    @State var originalAddress: String = ""
-    
+    @Environment(\.modelContext) private var modelContext
+    // 制御用
     @Environment(\.presentationMode) var presentation
+    
+    @StateObject var largeVM: LargeDataViewModel
     
     
     var body: some View {
@@ -46,15 +29,16 @@ struct LargeData: View {
                     Spacer()
                     
                     Button {
-                        deleteAlert.toggle()
+                        largeVM.model.deleteAlert.toggle()
                     } label: {
                         Image(systemName: "trash").tint(Color.red)
                     }
-                    .alert("警告", isPresented: $deleteAlert) {
+                    .alert("警告", isPresented: $largeVM.model.deleteAlert) {
                         Button("削除", role: .destructive){
                             // データ削除処理
-                            delact { _ in
-                                tools.feedBack(mode: "success")
+                            largeVM.delact(data: data, modelContext: modelContext) { _ in
+                                largeVM.tools.feedBack(mode: "success")
+                                // 削除後にタイムラインに戻る
                                 self.presentation.wrappedValue.dismiss()
                             }
                         }
@@ -83,19 +67,22 @@ struct LargeData: View {
                 
                 VStack{
                     HStack{
-                        Text("登録：" + tools.formatDate(date: data.registDate))
+                        Text("登録：" + largeVM.tools.formatDate(date: data.registDate))
                         Spacer()
                     }
                     HStack{
-                        Text("状況：\(todoFlag ? "完了" : "未完了")")
+                        Text("状況：\(largeVM.model.todoFlag ? "完了" : "未完了")")
                         Spacer()
-                        Toggle("", isOn: $todoFlag).padding(.trailing)
-                    }.onChange(of: todoFlag) { oldValue, newValue in
-                        endFlagAct(data: data, flag: todoFlag) { Bool in
+                        Toggle("", isOn: $largeVM.model.todoFlag).padding(.trailing)
+                    }.onChange(of: largeVM.model.todoFlag) { oldValue, newValue in
+//                        endFlagAct(data: data, flag: largeVM.model.todoFlag) { Bool in
+//                        }
+                        largeVM.endFlagAct(data: data, flag: largeVM.model.todoFlag, modelContext: self.modelContext) { Bool in
+                            // 削除失敗処理
                         }
                     }
                     .onAppear(){
-                        todoFlag = data.endFlag
+                        largeVM.model.todoFlag = data.endFlag
                     }
                 }
                 
@@ -107,125 +94,27 @@ struct LargeData: View {
                 }
                 
                 HStack{
-                    Text(address)
+                    Text(largeVM.model.address)
 //                    Text("lat:\(data.lat), lon:\(data.lon)")
                     Spacer()
                 }.onAppear(){
-                    locationMan.regeocoding(lon: data.lon, lat: data.lat) { addr in
-                        self.address = addr
+                    largeVM.locationMan.regeocoding(lon: data.lon, lat: data.lat) { addr in
+                        largeVM.model.address = addr
                     }
                 }
 
                 Divider()
-                MapCard(controlFlag: true, data: data)
+                MapCard(controlFlag: true, data: $data)
                 
                 Spacer()
             }.padding(.bottom, 50)
         }.navigationTitle("Todo")
             .navigationBarItems(trailing: Button("編集"){
-                toolButton.toggle()
+                largeVM.model.toolButton.toggle()
             })
-            .sheet(isPresented: $toolButton, content: {
-                ScrollView{
-                
-                    HStack{
-                        Text("タイトル").bold()
-                        Spacer()
-                    }.padding(.top)
-                    HStack{
-                        TextField("タイトル", text: $title)
-                        Spacer()
-                    }
-                    
-                    Divider()
-                        
-                    HStack{
-                        Text("サブタイトル").bold()
-                        Spacer()
-                    }
-                    HStack{
-                        TextField("サブタイトル", text: $subTitle)
-                        Spacer()
-                    }
-                    
-                    Divider()
-                    
-                    HStack{
-                        Text("住所").bold()
-                        Spacer()
-                    }
-                    VStack{
-                        HStack{
-                            TextField("住所", text: $address)
-                        }.onAppear(){
-                            originalAddress = address
-                        }
-                    }
-                    
-                    Divider()
-                    
-                    HStack{
-                        Text("メモ").bold()
-                        Spacer()
-                    }
-                    VStack{
-                        HStack{
-                            TextEditor(text: $memoData).frame(width: .infinity, height: 100)
-                        }
-                    }
-                        
-                    Divider()
-                    Button("完了"){
-                        act { _ in
-                            toolButton.toggle()
-                        }
-                        
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .interactiveDismissDisabled()
-                    .padding(.top)
-                    .onAppear(){
-                        self.title = data.title
-                        self.subTitle = data.subTitle
-                        self.memoData = data.mapMemo
-                    }
-                    Spacer()
-                }.padding([.trailing, .leading])
+            .sheet(isPresented: $largeVM.model.toolButton, content: {
+                UpdateSheet(largeVM: largeVM, data: $data)
             })
-    }
-    
-    
-    // 更新関数
-    func act(complete: @escaping (Bool)->Void){
-        
-        let newItem = MapDataModel(id: data.id, title: self.title, subTitle: self.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: data.endDate, endFlag: todoFlag, mapMode: data.mapMode, mapMemo: self.memoData)
-        
-        self.modelContext.insert(newItem)
-        
-        try! self.modelContext.save()
-        
-        complete(true)
-    }
-    
-    // 完了処理
-    func endFlagAct(data:MapDataModel, flag:Bool, complete: @escaping (Bool)->Void){
-        
-        let newItem = MapDataModel(id: data.id, title: data.title, subTitle: data.subTitle, lat: data.lat, lon: data.lon, registDate: data.registDate, endDate: Date(), endFlag: flag, mapMode: data.mapMode, mapMemo: data.mapMemo)
-        
-        self.modelContext.insert(newItem)
-        
-        try! self.modelContext.save()
-        
-        complete(true)
-    }
-    
-    // 削除処理
-    func delact(complete: @escaping (Bool)->Void){
-        
-        self.modelContext.delete(self.data)
-        try! self.modelContext.save()
-        
-        complete(true)
     }
     
     
