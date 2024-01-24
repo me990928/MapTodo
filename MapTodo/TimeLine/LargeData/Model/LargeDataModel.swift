@@ -23,4 +23,5 @@ struct LargeDataModel {
     var memoData: String = ""
     var address: String = ""
     var originalAddress: String = ""
+    var sheetUpdateFlag: Bool = false
 }

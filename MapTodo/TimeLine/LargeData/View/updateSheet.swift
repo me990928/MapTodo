@@ -16,8 +16,9 @@ struct UpdateSheet: View {
     @Environment(\.modelContext) private var modelContext
     
     var body: some View {
+        ZStack{
             ScrollView{
-            
+                
                 HStack{
                     Text("タイトル").bold()
                     Spacer()
@@ -28,7 +29,7 @@ struct UpdateSheet: View {
                 }
                 
                 Divider()
-                    
+                
                 HStack{
                     Text("サブタイトル").bold()
                     Spacer()
@@ -63,10 +64,12 @@ struct UpdateSheet: View {
                         TextEditor(text: $largeVM.model.memoData).frame(width: .infinity, height: 100)
                     }
                 }
-                    
+                
                 Divider()
                 Button("完了"){
+                    largeVM.model.sheetUpdateFlag.toggle()
                     largeVM.update(data: data, modelContext: modelContext) { _ in
+                        largeVM.model.sheetUpdateFlag.toggle()
                         largeVM.model.toolButton.toggle()
                     }
                     
@@ -81,6 +84,15 @@ struct UpdateSheet: View {
                 }
                 Spacer()
             }.padding([.trailing, .leading])
+        }
+        
+        if largeVM.model.sheetUpdateFlag {
+                VStack{
+                    ProgressView()
+                    Text("編集中").padding()
+                }.frame(width: 300, height: 300).background(Material.ultraThinMaterial).cornerRadius(10)
+                Color.white.opacity(0).frame(width: .infinity, height: .infinity)
+        }
     }
     
 }
