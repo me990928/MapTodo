@@ -25,7 +25,7 @@ struct MapTodoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(AppState())
         }
         .modelContainer(sharedModelContainer)
     }

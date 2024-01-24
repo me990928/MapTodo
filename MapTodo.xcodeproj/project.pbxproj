@@ -36,6 +36,7 @@
 		D2EB41672B60EBAC00A7FF8B /* SmallDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB41662B60EBAC00A7FF8B /* SmallDataViewModel.swift */; };
 		D2EB41692B60ED2400A7FF8B /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB41682B60ED2400A7FF8B /* TimeLineViewModel.swift */; };
 		D2EB416B2B60ED5100A7FF8B /* TimeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB416A2B60ED5100A7FF8B /* TimeLineModel.swift */; };
+		D2EB416D2B61089F00A7FF8B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB416C2B61089F00A7FF8B /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		D2EB41662B60EBAC00A7FF8B /* SmallDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallDataViewModel.swift; sourceTree = "<group>"; };
 		D2EB41682B60ED2400A7FF8B /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		D2EB416A2B60ED5100A7FF8B /* TimeLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineModel.swift; sourceTree = "<group>"; };
+		D2EB416C2B61089F00A7FF8B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		2550B8062B5D76650004C360 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D2EB416C2B61089F00A7FF8B /* AppState.swift */,
 				2550B8072B5D76650004C360 /* MapDataModel.swift */,
 			);
 			path = Model;
@@ -508,6 +511,7 @@
 				D2EB414F2B5ECF4E00A7FF8B /* SettingsModel.swift in Sources */,
 				2550B81F2B5D76850004C360 /* Tools.swift in Sources */,
 				D2EB41652B60EB7C00A7FF8B /* SmallDataModel.swift in Sources */,
+				D2EB416D2B61089F00A7FF8B /* AppState.swift in Sources */,
 				D2EB414C2B5E27A300A7FF8B /* AddViewModel.swift in Sources */,
 				2550B7DD2B5D740C0004C360 /* MapTodoApp.swift in Sources */,
 				2550B8212B5D76850004C360 /* Settings.swift in Sources */,

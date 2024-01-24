@@ -10,6 +10,7 @@ import SwiftData
 
 struct AddData: View {
     
+    @EnvironmentObject var appState: AppState
     
     @Environment(\.modelContext) private var modelContext
     
@@ -79,6 +80,7 @@ struct AddData: View {
                         let newItem = MapDataModel(id: UUID().uuidString, title: addVM.addModel.title.isEmpty ? "No title" : addVM.addModel.title, subTitle: addVM.addModel.subTitle, lat: addVM.addModel.lat, lon: addVM.addModel.lon, registDate: Date(), endDate: Date(), endFlag: false, mapMode: true, mapMemo: "")
                         self.modelContext.insert(newItem)
                         addVM.tools.feedBack(mode: "success")
+                        appState.pageNum = 0
                     }
                     
                     // 登録完了後、TLに飛ぶ
@@ -105,8 +107,4 @@ struct AddData: View {
         }
     }
     
-}
-
-#Preview {
-    AddData(addVM: AddViewModel())
 }
