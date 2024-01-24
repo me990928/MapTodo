@@ -104,7 +104,7 @@ struct LargeData: View {
                 }
 
                 Divider()
-                MapCard(controlFlag: true, data: data)
+                MapCard(controlFlag: true, data: $data)
                 
                 Spacer()
             }.padding(.bottom, 50)

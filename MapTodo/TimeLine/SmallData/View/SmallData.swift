@@ -26,7 +26,7 @@ struct SmallData: View {
                 }
                 Spacer()
             }
-            MapCard(controlFlag: false, data: data)
+            MapCard(controlFlag: false, data: $data)
             HStack{
                 Spacer()
                 data.endFlag ? Text("\(smallVM.tools.formatDate(date: data.endDate)) 完了").foregroundStyle(.gray).font(.caption) : nil
