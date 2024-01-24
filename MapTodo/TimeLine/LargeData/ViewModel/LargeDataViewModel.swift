@@ -31,7 +31,11 @@ class LargeDataViewModel: ObservableObject {
                 do {
                     try modelContext.save()
 //                    print("success \(newItem.lat)")
-                    complete(true)
+                    self.locationMan.regeocoding(lon: data.lon, lat: data.lat) { addr in
+                        self.model.address = addr
+                        
+                        complete(true)
+                    }
                 } catch {
                     print("faild")
                     complete(false)
