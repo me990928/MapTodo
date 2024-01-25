@@ -20,7 +20,7 @@ struct AddData: View {
         
         ZStack{
             VStack{
-                Text("Todo作成").font(.title)
+                Text("Todo作成").bold().padding(.top , 0.5)
                 Group{
                     VStack{
                         HStack{
