@@ -14,7 +14,7 @@ class SettingsViewModel: ObservableObject {
     let toolbox = ToolBox()
     
     func mapStyleChangeMap(data: [MapDataModel], modelContext: ModelContext, complete: @escaping (Bool)->Void){
-        var newData = data
+        let newData = data
         newData.forEach { MapDataModel in
             MapDataModel.mapMode = false
             modelContext.insert(MapDataModel)
