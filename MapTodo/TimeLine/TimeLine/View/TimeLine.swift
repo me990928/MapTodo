@@ -18,30 +18,6 @@ struct TimeLine: View {
     
     var body: some View {
         NavigationStack{
-//            List{
-//                
-//                ForEach(items) { data in
-//                    
-//                    NavigationLink {
-//                        LargeData(data: data, largeVM: LargeDataViewModel()).padding()
-//                    } label: {
-//                        SmallData(smallVM: SmallDataViewModel(), data: data)
-//                    }.contextMenu(ContextMenu(menuItems: {
-//                        Button(data.endFlag ? "未完了" : "完了"){
-//                            endFlagAct(data: data, flag: !data.endFlag) { Bool in
-//                                    timelineVM.toolbox.feedBack(mode: "success")
-//                            }
-//                        }
-//                        Button("削除", role: .destructive) {
-//                            delact(del: data) { Bool in
-//                                timelineVM.toolbox.feedBack(mode: "success")
-//                            }
-//                        }
-//                    }))
-//                    
-//                }
-//
-//            }.navigationTitle("Todo一覧").padding(.top)
             ScrollView {
                 LazyVStack{
                     ForEach(items) { data in
@@ -65,7 +41,7 @@ struct TimeLine: View {
                         Divider()
                     }
                 }
-            }.navigationTitle("Todo一覧").padding(.top)
+            }.navigationTitle("Todo一覧").navigationBarTitleDisplayMode(.inline).padding(.top)
         }
     }
     
