@@ -61,8 +61,13 @@ class AddViewModel: ObservableObject {
 //        self.modeContext.insert(newItem)
     }
     
-    public func rest(){
-        addModel.title = ""
-        addModel.subTitle = ""
+    public func reset(){
+        self.addModel.title = ""
+        self.addModel.subTitle = ""
+        self.addModel.address = ""
+        self.addModel.lat = 0.0
+        self.addModel.lon = 0.0
     }
+    
+    
 }

@@ -99,11 +99,7 @@ struct AddData: View {
                 }
             }
         }.onDisappear(){
-            self.addVM.addModel.title = ""
-            self.addVM.addModel.subTitle = ""
-            self.addVM.addModel.address = ""
-            self.addVM.addModel.lat = 0.0
-            self.addVM.addModel.lon = 0.0
+            addVM.reset()
         }
     }
     
