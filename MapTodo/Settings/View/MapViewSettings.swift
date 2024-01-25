@@ -20,8 +20,6 @@ struct MapViewSettings: View {
     var body: some View {
         List(){
             Button{
-                SettingVM.settingModel.allMapStyler.toggle()
-                
                 SettingVM.mapStyleChangeMap(data: items, modelContext: self.modelContext) { Bool in
                     self.SettingVM.toolbox.feedBack(mode: "success")
                     self.presentation.wrappedValue.dismiss()
@@ -30,6 +28,12 @@ struct MapViewSettings: View {
                 
             } label: {
                 Text("マップ表示を全て地図に変更する").foregroundStyle(Color(.label))
+            }
+            
+            Button{
+                
+            } label: {
+                Text("タイムラインのマップ表示をメモに変更する").foregroundStyle(Color(.label))
             }
         }
     }

@@ -13,5 +13,4 @@ struct SettingsModel {
     
     // タイムライン表示設定用
     var mapData: [MapDataModel]?
-    var allMapStyler: Bool = false
 }
