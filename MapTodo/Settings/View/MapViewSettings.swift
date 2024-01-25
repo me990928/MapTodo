@@ -27,8 +27,8 @@ struct MapViewSettings: View {
                     self.presentation.wrappedValue.dismiss()
                 }
             } label: {
-                Text("マップ表示を全て地図に変更する").foregroundStyle(Color(.label))
-            }
+                Text("マップ表示を全て地図に変更する").foregroundStyle(mapDisplay ? Color(.label) : Color.gray)
+            }.disabled(!mapDisplay)
             
             Toggle(isOn: $mapDisplay) {
                 Text("タイムラインのマップ表示")
