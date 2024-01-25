@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AppState: ObservableObject {
     @Published var pageNum: Int = 0
+    @Published var path = NavigationPath()
 }

@@ -20,6 +20,7 @@ struct Settings: View {
     
     var body: some View {
         NavigationStack {
+            Text("設定").bold().padding(.top, 0.5)
             List{
                 
                 HStack{

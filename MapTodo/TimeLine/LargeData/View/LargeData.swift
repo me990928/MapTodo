@@ -101,6 +101,8 @@ struct LargeData: View {
                     largeVM.locationMan.regeocoding(lon: data.lon, lat: data.lat) { addr in
                         largeVM.model.address = addr
                     }
+                }.onDisappear(){
+                    self.presentation.wrappedValue.dismiss()
                 }
 
                 Divider()
