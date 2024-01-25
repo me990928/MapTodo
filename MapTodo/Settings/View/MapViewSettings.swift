@@ -22,14 +22,11 @@ struct MapViewSettings: View {
             Button{
                 SettingVM.settingModel.allMapStyler.toggle()
                 
-                SettingVM.settingModel.mapData = items
-                SettingVM.settingModel.mapData?.forEach({ MapDataModel in
-                    MapDataModel.mapMode = false
-                    self.modelContext.insert(MapDataModel)
-                    try? self.modelContext.save()
-                })
+                SettingVM.mapStyleChangeMap(data: items, modelContext: self.modelContext) { Bool in
+                    self.SettingVM.toolbox.feedBack(mode: "success")
+                    self.presentation.wrappedValue.dismiss()
+                }
                 
-                self.presentation.wrappedValue.dismiss()
                 
             } label: {
                 Text("マップ表示を全て地図に変更する").foregroundStyle(Color(.label))
