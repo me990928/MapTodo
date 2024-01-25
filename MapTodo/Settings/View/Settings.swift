@@ -29,7 +29,7 @@ struct Settings: View {
                 }
                 
                 NavigationLink {
-                    MapViewSettings()
+                    MapViewSettings(SettingVM: setteingVM)
                 } label: {
                     Text("マップの表示設定")
                 }

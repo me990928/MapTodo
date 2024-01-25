@@ -10,4 +10,8 @@ import Foundation
 struct SettingsModel {
     var awTog: Bool = true
     var dataResetFlag: Bool = false
+    
+    // タイムライン表示設定用
+    var mapData: [MapDataModel]?
+    var allMapStyler: Bool = false
 }
