@@ -37,6 +37,7 @@
 		D2EB41692B60ED2400A7FF8B /* TimeLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB41682B60ED2400A7FF8B /* TimeLineViewModel.swift */; };
 		D2EB416B2B60ED5100A7FF8B /* TimeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB416A2B60ED5100A7FF8B /* TimeLineModel.swift */; };
 		D2EB416D2B61089F00A7FF8B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB416C2B61089F00A7FF8B /* AppState.swift */; };
+		D2EB416F2B62BEA100A7FF8B /* MapViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EB416E2B62BEA100A7FF8B /* MapViewSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		D2EB41682B60ED2400A7FF8B /* TimeLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewModel.swift; sourceTree = "<group>"; };
 		D2EB416A2B60ED5100A7FF8B /* TimeLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineModel.swift; sourceTree = "<group>"; };
 		D2EB416C2B61089F00A7FF8B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D2EB416E2B62BEA100A7FF8B /* MapViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				2550B81A2B5D76850004C360 /* Settings.swift */,
+				D2EB416E2B62BEA100A7FF8B /* MapViewSettings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 			files = (
 				2550B81E2B5D76850004C360 /* TimeLine.swift in Sources */,
 				2550B8232B5D79E20004C360 /* AddDataModel.swift in Sources */,
+				D2EB416F2B62BEA100A7FF8B /* MapViewSettings.swift in Sources */,
 				D2EB41672B60EBAC00A7FF8B /* SmallDataViewModel.swift in Sources */,
 				2550B81D2B5D76850004C360 /* SmallData.swift in Sources */,
 				D2EB416B2B60ED5100A7FF8B /* TimeLineModel.swift in Sources */,
