@@ -20,20 +20,22 @@ struct SmallData: View {
             HStack{
                 VStack(alignment: .leading){
                     HStack{
-                        Text(data.title).bold()
+                        Text(data.title).bold().multilineTextAlignment(.leading)
                         Spacer()
                         Text(smallVM.tools.formatDate(date: data.registDate)).foregroundStyle(.gray).font(.caption)
                     }
-                    Text(data.subTitle)
+                    Text(data.subTitle).multilineTextAlignment(.leading)
                 }
                 Spacer()
             }
             if mapDisplay {
                 MapCard(controlFlag: false, data: $data)
             } else {
-                HStack{
-                    Text(data.mapMemo).foregroundStyle(Color(.label))
-                    Spacer()
+                VStack(alignment: .leading){
+                    HStack{
+                        Text(data.mapMemo.isEmpty ? "編集からメモを書き込むことができます" : data.mapMemo).foregroundStyle(data.mapMemo.isEmpty ? Color.gray : Color(UIColor.label)).multilineTextAlignment(.leading)
+                        Spacer()
+                    }
                 }
             }
             

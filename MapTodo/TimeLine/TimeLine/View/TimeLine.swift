@@ -43,7 +43,7 @@ struct TimeLine: View {
 //
 //            }.navigationTitle("Todo一覧").padding(.top)
             ScrollView {
-                LazyVStack {
+                LazyVStack{
                     ForEach(items) { data in
     
                         NavigationLink {

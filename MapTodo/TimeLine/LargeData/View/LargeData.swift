@@ -25,7 +25,7 @@ struct LargeData: View {
         ScrollView(showsIndicators: false){
             VStack{
                 HStack{
-                    Text(data.title).bold().font(.title)
+                    Text(data.title).bold().font(.title).multilineTextAlignment(.leading)
                     Spacer()
                     
                     Button {
@@ -50,15 +50,15 @@ struct LargeData: View {
                 Divider()
                 
                 HStack{
-                    Text(data.subTitle)
+                    Text(data.subTitle).multilineTextAlignment(.leading)
                     Spacer()
                 }
                 
                 Divider()
                 
-                VStack{
+                VStack(alignment: .leading){
                     HStack{
-                        Text(data.mapMemo.isEmpty ? "編集からメモを書き込むことができます" : data.mapMemo).foregroundStyle(data.mapMemo.isEmpty ? Color.gray : Color(UIColor.label))
+                        Text(data.mapMemo.isEmpty ? "編集からメモを書き込むことができます" : data.mapMemo).foregroundStyle(data.mapMemo.isEmpty ? Color.gray : Color(UIColor.label)).multilineTextAlignment(.leading)
                         Spacer()
                     }
                 }
@@ -94,7 +94,7 @@ struct LargeData: View {
                 }
                 
                 HStack{
-                    Text(largeVM.model.address)
+                    Text(largeVM.model.address).multilineTextAlignment(.leading)
 //                    Text("lat:\(data.lat), lon:\(data.lon)")
                     Spacer()
                 }.onAppear(){
