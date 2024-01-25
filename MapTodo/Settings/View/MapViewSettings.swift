@@ -15,23 +15,25 @@ struct MapViewSettings: View {
     
     @StateObject var SettingVM: SettingsViewModel
     
+    @AppStorage ("mapDisplay") var mapDisplay: Bool = true
+    
     // 制御用
     @Environment(\.presentationMode) var presentation
     var body: some View {
         List(){
             Button{
                 SettingVM.mapStyleChangeMap(data: items, modelContext: self.modelContext) { Bool in
-                    self.SettingVM.toolbox.feedBack(mode: "success")
+                    self.SettingVM.toolbox.feedBack(mode: "change")
                     self.presentation.wrappedValue.dismiss()
                 }
-                
-                
             } label: {
                 Text("マップ表示を全て地図に変更する").foregroundStyle(Color(.label))
             }
             
             Button{
-                
+                mapDisplay.toggle()
+                SettingVM.toolbox.feedBack(mode: "change")
+                self.presentation.wrappedValue.dismiss()
             } label: {
                 Text("タイムラインのマップ表示をメモに変更する").foregroundStyle(Color(.label))
             }
