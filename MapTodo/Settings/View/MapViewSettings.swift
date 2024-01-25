@@ -30,12 +30,10 @@ struct MapViewSettings: View {
                 Text("マップ表示を全て地図に変更する").foregroundStyle(Color(.label))
             }
             
-            Button{
-                mapDisplay.toggle()
+            Toggle(isOn: $mapDisplay) {
+                Text("タイムラインのマップ表示")
+            }.onChange(of: mapDisplay) {
                 SettingVM.toolbox.feedBack(mode: "change")
-                self.presentation.wrappedValue.dismiss()
-            } label: {
-                Text("タイムラインのマップ表示をメモに変更する").foregroundStyle(Color(.label))
             }
         }
     }
