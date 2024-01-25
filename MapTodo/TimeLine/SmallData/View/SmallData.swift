@@ -13,6 +13,8 @@ struct SmallData: View {
     
     @State var data: MapDataModel
     
+    @AppStorage ("mapDisplay") var mapDisplay: Bool = true
+    
     var body: some View {
         VStack{
             HStack{
@@ -26,7 +28,15 @@ struct SmallData: View {
                 }
                 Spacer()
             }
-            MapCard(controlFlag: false, data: $data)
+            if mapDisplay {
+                MapCard(controlFlag: false, data: $data)
+            } else {
+                HStack{
+                    Text(data.mapMemo).foregroundStyle(Color(.label))
+                    Spacer()
+                }
+            }
+            
             HStack{
                 Spacer()
                 data.endFlag ? Text("\(smallVM.tools.formatDate(date: data.endDate)) 完了").foregroundStyle(.gray).font(.caption) : nil

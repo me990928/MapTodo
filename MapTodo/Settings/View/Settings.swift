@@ -19,7 +19,7 @@ struct Settings: View {
     @StateObject var setteingVM: SettingsViewModel
     
     var body: some View {
-        VStack(alignment: .leading){
+        NavigationStack {
             List{
                 
                 HStack{
@@ -27,6 +27,13 @@ struct Settings: View {
                     Spacer()
                     Toggle("", isOn: $setteingVM.settingModel.awTog).frame(width: 50).disabled(true)
                 }
+                
+                NavigationLink {
+                    MapViewSettings(SettingVM: setteingVM)
+                } label: {
+                    Text("マップの表示設定")
+                }
+
                 
                 Button {
                     setteingVM.settingModel.dataResetFlag.toggle()
