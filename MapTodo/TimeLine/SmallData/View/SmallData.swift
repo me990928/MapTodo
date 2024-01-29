@@ -24,7 +24,7 @@ struct SmallData: View {
                         Spacer()
                         Text(smallVM.tools.formatDate(date: data.registDate)).foregroundStyle(.gray).font(.caption)
                     }
-                    Text(data.subTitle).multilineTextAlignment(.leading)
+                    Text(data.subTitle).multilineTextAlignment(.leading).foregroundStyle(Color("MySecondaryColor"))
                 }
                 Spacer()
             }
