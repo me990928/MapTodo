@@ -1,6 +1,6 @@
 //
 //  MapTodoApp.swift
-//  MapTodo Watch App
+//  MapTodo
 //
 //  Created by Yuya Hirose on 2024/01/22.
 //
@@ -9,11 +9,10 @@ import SwiftUI
 import SwiftData
 
 @main
-struct MapTodo_Watch_AppApp: App {
-    
+struct MapTodoApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            RegistWatchMapDataModel.self,
+            MapDataModel.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -26,11 +25,9 @@ struct MapTodo_Watch_AppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(AppState()).environmentObject(WatchRecever())
         }
         .modelContainer(sharedModelContainer)
     }
 }
-
-
 
